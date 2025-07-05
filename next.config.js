@@ -1,13 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
   images: {
-    domains: ['images.unsplash.com'],
-    formats: ['image/webp', 'image/avif'],
+    unoptimized: true
   },
-  compress: true,
-  poweredByHeader: false,
-  reactStrictMode: true,
-  swcMinify: true,
+  basePath: process.env.NODE_ENV === 'production' ? '/mahaworld' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/mahaworld/' : '',
 }
 
 module.exports = nextConfig 
